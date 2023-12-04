@@ -7,25 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B56EE682B1CF42E0079D935 /* ChessAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B56EE662B1CF42E0079D935 /* ChessAlertViewController.swift */; };
+		2B56EE692B1CF42E0079D935 /* ChessAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B56EE672B1CF42E0079D935 /* ChessAlertViewController.xib */; };
+		2B6453C02B1E778F00631832 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6453BF2B1E778F00631832 /* StatisticsViewController.swift */; };
+		2B6453C32B1E8D9700631832 /* Playboards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B6453C12B1E8D9700631832 /* Playboards.xcdatamodeld */; };
+		2BA2A87F2B1758B00079709E /* ChessCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA2A87E2B1758B00079709E /* ChessCollectionViewCell.swift */; };
+		2BA2A8822B192F100079709E /* ChessPuzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA2A8812B192F100079709E /* ChessPuzzle.swift */; };
 		2BCF00CF2B13B37E00634D7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCF00CE2B13B37E00634D7C /* AppDelegate.swift */; };
 		2BCF00D12B13B37E00634D7C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCF00D02B13B37E00634D7C /* SceneDelegate.swift */; };
-		2BCF00D32B13B37E00634D7C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCF00D22B13B37E00634D7C /* ViewController.swift */; };
 		2BCF00D62B13B37E00634D7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BCF00D42B13B37E00634D7C /* Main.storyboard */; };
-		2BCF00D92B13B37E00634D7C /* Playboards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2BCF00D72B13B37E00634D7C /* Playboards.xcdatamodeld */; };
 		2BCF00DB2B13B38000634D7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BCF00DA2B13B38000634D7C /* Assets.xcassets */; };
 		2BCF00DE2B13B38000634D7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BCF00DC2B13B38000634D7C /* LaunchScreen.storyboard */; };
+		2BCF00E92B13D3EC00634D7C /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCF00E82B13D3EC00634D7C /* MenuTableViewController.swift */; };
+		2BD76D462B14BF1C001165BB /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD76D452B14BF1C001165BB /* MenuTableViewCell.swift */; };
+		2BD76D482B151C4D001165BB /* TicTacToeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD76D472B151C4D001165BB /* TicTacToeViewController.swift */; };
+		2BE2E42E2B16624000BEA37D /* ChessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE2E42D2B16624000BEA37D /* ChessViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B56EE662B1CF42E0079D935 /* ChessAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessAlertViewController.swift; sourceTree = "<group>"; };
+		2B56EE672B1CF42E0079D935 /* ChessAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChessAlertViewController.xib; sourceTree = "<group>"; };
+		2B6453BF2B1E778F00631832 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		2B6453C22B1E8D9700631832 /* Playboards.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Playboards.xcdatamodel; sourceTree = "<group>"; };
+		2BA2A87E2B1758B00079709E /* ChessCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessCollectionViewCell.swift; sourceTree = "<group>"; };
+		2BA2A8812B192F100079709E /* ChessPuzzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessPuzzle.swift; sourceTree = "<group>"; };
 		2BCF00CB2B13B37E00634D7C /* Playboards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Playboards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BCF00CE2B13B37E00634D7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BCF00D02B13B37E00634D7C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2BCF00D22B13B37E00634D7C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2BCF00D52B13B37E00634D7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2BCF00D82B13B37E00634D7C /* Playboards.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Playboards.xcdatamodel; sourceTree = "<group>"; };
 		2BCF00DA2B13B38000634D7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BCF00DD2B13B38000634D7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2BCF00DF2B13B38000634D7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BCF00E82B13D3EC00634D7C /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		2BD76D452B14BF1C001165BB /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		2BD76D472B151C4D001165BB /* TicTacToeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeViewController.swift; sourceTree = "<group>"; };
+		2BE2E42D2B16624000BEA37D /* ChessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +55,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B6453BE2B1E776500631832 /* ChessController */ = {
+			isa = PBXGroup;
+			children = (
+				2BE2E42D2B16624000BEA37D /* ChessViewController.swift */,
+				2BA2A87E2B1758B00079709E /* ChessCollectionViewCell.swift */,
+				2B56EE662B1CF42E0079D935 /* ChessAlertViewController.swift */,
+			);
+			path = ChessController;
+			sourceTree = "<group>";
+		};
+		2BA2A8802B192EDE0079709E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2BA2A8812B192F100079709E /* ChessPuzzle.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		2BCF00C22B13B37D00634D7C = {
 			isa = PBXGroup;
 			children = (
@@ -58,16 +92,46 @@
 		2BCF00CD2B13B37E00634D7C /* Playboards */ = {
 			isa = PBXGroup;
 			children = (
-				2BCF00CE2B13B37E00634D7C /* AppDelegate.swift */,
-				2BCF00D02B13B37E00634D7C /* SceneDelegate.swift */,
-				2BCF00D22B13B37E00634D7C /* ViewController.swift */,
-				2BCF00D42B13B37E00634D7C /* Main.storyboard */,
+				2BA2A8802B192EDE0079709E /* Model */,
+				2BCF00E52B13CFBE00634D7C /* AppDelegate */,
+				2BCF00E72B13D03F00634D7C /* Controller */,
+				2BCF00E62B13D03300634D7C /* View */,
 				2BCF00DA2B13B38000634D7C /* Assets.xcassets */,
-				2BCF00DC2B13B38000634D7C /* LaunchScreen.storyboard */,
 				2BCF00DF2B13B38000634D7C /* Info.plist */,
-				2BCF00D72B13B37E00634D7C /* Playboards.xcdatamodeld */,
+				2B6453C12B1E8D9700631832 /* Playboards.xcdatamodeld */,
 			);
 			path = Playboards;
+			sourceTree = "<group>";
+		};
+		2BCF00E52B13CFBE00634D7C /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				2BCF00CE2B13B37E00634D7C /* AppDelegate.swift */,
+				2BCF00D02B13B37E00634D7C /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		2BCF00E62B13D03300634D7C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2B56EE672B1CF42E0079D935 /* ChessAlertViewController.xib */,
+				2BCF00D42B13B37E00634D7C /* Main.storyboard */,
+				2BCF00DC2B13B38000634D7C /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2BCF00E72B13D03F00634D7C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2BCF00E82B13D3EC00634D7C /* MenuTableViewController.swift */,
+				2BD76D452B14BF1C001165BB /* MenuTableViewCell.swift */,
+				2BD76D472B151C4D001165BB /* TicTacToeViewController.swift */,
+				2B6453BE2B1E776500631832 /* ChessController */,
+				2B6453BF2B1E778F00631832 /* StatisticsViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,6 +194,7 @@
 			files = (
 				2BCF00DE2B13B38000634D7C /* LaunchScreen.storyboard in Resources */,
 				2BCF00DB2B13B38000634D7C /* Assets.xcassets in Resources */,
+				2B56EE692B1CF42E0079D935 /* ChessAlertViewController.xib in Resources */,
 				2BCF00D62B13B37E00634D7C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,9 +206,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BCF00D92B13B37E00634D7C /* Playboards.xcdatamodeld in Sources */,
-				2BCF00D32B13B37E00634D7C /* ViewController.swift in Sources */,
+				2B56EE682B1CF42E0079D935 /* ChessAlertViewController.swift in Sources */,
+				2B6453C32B1E8D9700631832 /* Playboards.xcdatamodeld in Sources */,
+				2B6453C02B1E778F00631832 /* StatisticsViewController.swift in Sources */,
+				2BCF00E92B13D3EC00634D7C /* MenuTableViewController.swift in Sources */,
+				2BA2A87F2B1758B00079709E /* ChessCollectionViewCell.swift in Sources */,
+				2BE2E42E2B16624000BEA37D /* ChessViewController.swift in Sources */,
+				2BD76D462B14BF1C001165BB /* MenuTableViewCell.swift in Sources */,
+				2BD76D482B151C4D001165BB /* TicTacToeViewController.swift in Sources */,
 				2BCF00CF2B13B37E00634D7C /* AppDelegate.swift in Sources */,
+				2BA2A8822B192F100079709E /* ChessPuzzle.swift in Sources */,
 				2BCF00D12B13B37E00634D7C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,12 +439,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		2BCF00D72B13B37E00634D7C /* Playboards.xcdatamodeld */ = {
+		2B6453C12B1E8D9700631832 /* Playboards.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				2BCF00D82B13B37E00634D7C /* Playboards.xcdatamodel */,
+				2B6453C22B1E8D9700631832 /* Playboards.xcdatamodel */,
 			);
-			currentVersion = 2BCF00D82B13B37E00634D7C /* Playboards.xcdatamodel */;
+			currentVersion = 2B6453C22B1E8D9700631832 /* Playboards.xcdatamodel */;
 			path = Playboards.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
