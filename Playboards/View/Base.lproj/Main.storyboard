@@ -342,8 +342,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUS-Nt-sav">
-                                <rect key="frame" x="40" y="234" width="295" height="179.5"/>
-                                <string key="text">One player plays X, and another player plays O. Each player puts their mark in an empty square. The first player to get four of their marks in line wins. The lines could be made vertically, horizontally and diagonally.</string>
+                                <rect key="frame" x="40" y="195.5" width="295" height="256.5"/>
+                                <string key="text">One player plays X, and another player plays O. Each player puts their mark in an empty square. If player puts more than 5 marks they start disappearing in the same order they were added to the board. The first player to get four of their marks in line wins. The lines could be made vertically, horizontally and diagonally.</string>
                                 <fontDescription key="fontDescription" name="NotoSansKannada-Regular" family="Noto Sans Kannada" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

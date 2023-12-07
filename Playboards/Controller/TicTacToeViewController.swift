@@ -75,11 +75,23 @@ class TicTacToeViewController: UIViewController {
         if currentTurn == Turn.TurnX {
             if gameWon(turn: Turn.TurnO.rawValue) {
                 resultAlert(title: "\(Turn.TurnO.rawValue) won!")
+                updateStatistics(xWon: false)
             }
         } else {
             if gameWon(turn: Turn.TurnX.rawValue) {
                 resultAlert(title: "\(Turn.TurnX.rawValue) won!")
+                updateStatistics(xWon: true)
             }
+        }
+    }
+    
+    func updateStatistics(xWon: Bool) {
+        var gamesFinished = UserDefaults.standard.value(forKey: "tictacGamesFinished") as? Int ?? 0
+        gamesFinished += 1
+        UserDefaults.standard.set(gamesFinished, forKey: "tictacGamesFinished")
+        if xWon {
+            let xVictories = UserDefaults.standard.value(forKey: "xVictories") as? Int ?? 0
+            UserDefaults.standard.set(xVictories + 1, forKey: "xVictories")
         }
     }
     

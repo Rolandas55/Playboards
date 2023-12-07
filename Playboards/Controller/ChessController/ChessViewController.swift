@@ -10,7 +10,9 @@ import UIKit
 class ChessViewController: UIViewController, CustomAlertDelegate  {
 
     let turnLabel = UILabel()
-    let mistakeLabel = UILabel()
+    let mistakeText = UILabel()
+    let mistakeNumber = UILabel()
+    let mistakeStack = UIStackView()
     let nextButton = UIButton()
     var puzzles: [Puzzle] = []
     var colorToggle = true
@@ -27,22 +29,23 @@ class ChessViewController: UIViewController, CustomAlertDelegate  {
     var moves: [[Int]] = []
     var computerMoves: (Int, Int)?
     var wrongMoves = 0
-    var difficulty = 1000
     var puzzleFinished = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        setupNavigationBarView()
         nextButtonTapped(sender: nextButton)
     }
     
     func loadNewPuzzle() {
+        let difficulty = UserDefaults.standard.value(forKey: "currentDifficulty") as? Float ?? 1000
         let headers = [
-            "X-RapidAPI-Key": "01181444bbmsh8a407fcc60c6085p199a6ejsn851d59f8bb1d",
+            "X-RapidAPI-Key": "7acda74e3fmshb712431a0e6cb83p121f6fjsnbff717cd61cb",
             "X-RapidAPI-Host": "chess-puzzles.p.rapidapi.com"
         ]
 
-        let request = NSMutableURLRequest(url: NSURL(string: "https://chess-puzzles.p.rapidapi.com/?rating=\(difficulty)&themesType=ALL&count=1")! as URL,
+        let request = NSMutableURLRequest(url: NSURL(string: "https://chess-puzzles.p.rapidapi.com/?rating=\(Int(difficulty))&themesType=ALL&count=1")! as URL,
                                                 cachePolicy: .useProtocolCachePolicy,
                                             timeoutInterval: 10.0)
         request.httpMethod = "GET"
@@ -76,9 +79,15 @@ class ChessViewController: UIViewController, CustomAlertDelegate  {
         }.resume()
     }
     
+    private func setupNavigationBarView() {
+        navigationController?.navigationBar.tintColor = UIColor.label
+    }
+    
     private func setupView() {
         nextButton.translatesAutoresizingMaskIntoConstraints = false
-        mistakeLabel.translatesAutoresizingMaskIntoConstraints = false
+        mistakeStack.translatesAutoresizingMaskIntoConstraints = false
+        mistakeText.translatesAutoresizingMaskIntoConstraints = false
+        mistakeNumber.translatesAutoresizingMaskIntoConstraints = false
         turnLabel.translatesAutoresizingMaskIntoConstraints = false
         
         view.backgroundColor = .systemBackground
@@ -101,9 +110,12 @@ class ChessViewController: UIViewController, CustomAlertDelegate  {
         turnLabel.textAlignment = .center
         turnLabel.text = "Make the best moves for \(teamBlack ? "black" : "white")"
         
-        mistakeLabel.textColor = .label
-        mistakeLabel.textAlignment = .center
-        mistakeLabel.text = "Mistakes made: \(wrongMoves)"
+        mistakeStack.backgroundColor = UIColor.systemBackground
+        mistakeStack.axis = .horizontal
+        
+        mistakeText.textColor = .label
+        mistakeText.textAlignment = .center
+        mistakeText.text = "Mistakes made: \(wrongMoves)"
         
     
         nextButton.setTitle("Next puzzle", for: .normal)
@@ -112,30 +124,41 @@ class ChessViewController: UIViewController, CustomAlertDelegate  {
         nextButton.isHidden = false
         nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
         
+        mistakeStack.addSubview(mistakeText)
+        mistakeStack.addSubview(mistakeNumber)
         view.addSubview(turnLabel)
-        view.addSubview(mistakeLabel)
+        view.addSubview(mistakeStack)
         view.addSubview(collectionView)
         view.addSubview(nextButton)
         view.clipsToBounds = true
         
         view.bringSubviewToFront(nextButton)
         
+        let screenHeight = view.frame.size.height
         NSLayoutConstraint.activate([
             turnLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            turnLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
+            turnLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: screenHeight * 0.18),
             
-            mistakeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            mistakeLabel.topAnchor.constraint(equalTo: turnLabel.bottomAnchor, constant: 25),
+            mistakeStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            mistakeStack.topAnchor.constraint(equalTo: turnLabel.bottomAnchor, constant: screenHeight * 0.01),
+            mistakeStack.widthAnchor.constraint(equalToConstant: view.frame.size.width),
+            mistakeStack.heightAnchor.constraint(equalToConstant: 50),
+            
+            mistakeText.centerYAnchor.constraint(equalTo: mistakeStack.centerYAnchor),
+            mistakeText.centerXAnchor.constraint(equalTo: mistakeStack.centerXAnchor, constant: -10),
+            
+            mistakeNumber.centerYAnchor.constraint(equalTo: mistakeStack.centerYAnchor),
+            mistakeNumber.leadingAnchor.constraint(equalTo: mistakeText.trailingAnchor, constant: screenHeight * 0.01),
             
             nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            nextButton.topAnchor.constraint(equalTo: mistakeLabel.bottomAnchor, constant: 25),
+            nextButton.topAnchor.constraint(equalTo: mistakeStack.bottomAnchor, constant: screenHeight * 0.01   ),
             nextButton.widthAnchor.constraint(equalToConstant: 110),
             nextButton.heightAnchor.constraint(equalToConstant: 40),
             
             collectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
             collectionView.rightAnchor.constraint(equalTo: view.rightAnchor),
             collectionView.heightAnchor.constraint(equalToConstant: view.frame.size.width),
-            collectionView.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor, constant: -90)
+            collectionView.topAnchor.constraint(equalTo: nextButton.bottomAnchor, constant: screenHeight * (0.06))
         ])
         
         collectionView.register(ChessCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
@@ -215,9 +238,7 @@ class ChessViewController: UIViewController, CustomAlertDelegate  {
         imageValues[move.1] = figure
         movesDone += 1
         if movesDone >= puzzles[0].moves?.count ?? 0 {
-            nextButton.isHidden = false
-            movesDone = 0
-            puzzleFinished = true
+            endOfPuzzle()
         } else if player {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.makeNextMove(player: false)
@@ -230,8 +251,23 @@ class ChessViewController: UIViewController, CustomAlertDelegate  {
         }
     }
     
+    func endOfPuzzle() {
+        var gamesFinished = UserDefaults.standard.value(forKey: "chessGamesFinished") as? Int ?? 0
+        var mistakeAverage = UserDefaults.standard.value(forKey: "chessMistakeAverage") as? Float ?? 0
+        gamesFinished += 1
+        mistakeAverage = (mistakeAverage * Float(gamesFinished - 1) + Float(wrongMoves)) / Float(gamesFinished)
+        UserDefaults.standard.set(gamesFinished, forKey: "chessGamesFinished")
+        UserDefaults.standard.set(mistakeAverage, forKey: "chessMistakeAverage")
+        
+        nextButton.isHidden = false
+        movesDone = 0
+        puzzleFinished = true
+    }
+    
     func FindButtonTapped() {
         wrongMoves = 0
+        mistakeNumber.textColor = UIColor.label
+        mistakeNumber.font = UIFont.systemFont(ofSize: 17)
         computerMoves = nil
         selectedCell = nil
         puzzleFinished = false
@@ -259,7 +295,9 @@ extension ChessViewController: UICollectionViewDelegate {
                         self.makeNextMove(player: true)
                     } else {
                         wrongMoves += 1
-                        mistakeLabel.text = "Mistakes made: \(wrongMoves)"
+                        mistakeNumber.textColor = UIColor.red
+                        mistakeNumber.font = UIFont.systemFont(ofSize: 30)
+                        mistakeNumber.text = String(wrongMoves)
                     }
                 }
             }
@@ -311,7 +349,8 @@ extension ChessViewController: UICollectionViewDataSource {
         } else {
             turnLabel.text = "Make the best moves for \(teamBlack ? "black" : "white")"
         }
-        mistakeLabel.text = "Mistakes made: \(wrongMoves)"
+        mistakeText.text = "Mistakes made:"
+        mistakeNumber.text = String(wrongMoves)
         
         return cell
     }

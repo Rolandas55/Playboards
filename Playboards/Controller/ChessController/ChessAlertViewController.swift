@@ -27,8 +27,11 @@ class ChessAlertViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        difficultySlider.minimumValue = 600
-        difficultySlider.maximumValue = 3000
+        let currentDifficulty = UserDefaults.standard.value(forKey: "currentDifficulty") as? Float ?? difficultySlider.minimumValue
+        difficultySlider.value = currentDifficulty
+        difficultySlider.minimumValue = Float(600)
+        difficultySlider.maximumValue = Float(3000)
+        difficultyLabel.text = String(format: "%.0f", difficultySlider.value)
     }
     
     init() {
@@ -37,6 +40,7 @@ class ChessAlertViewController: UIViewController {
         self.modalTransitionStyle = .crossDissolve
     }
     @IBAction func sliderValueChange(_ sender: Any) {
+        UserDefaults.standard.set(difficultySlider.value, forKey: "currentDifficulty")
         difficultyLabel.text = String(format: "%.0f", difficultySlider.value)
     }
     
@@ -49,7 +53,7 @@ class ChessAlertViewController: UIViewController {
     }
     
     @IBAction func findButtonTapped(_ sender: Any) {
-        ChessViewController().difficulty = Int(difficultySlider.value)
+//        ChessViewController().difficulty = Int(difficultySlider.value)
         delegate?.FindButtonTapped()
         self.dismiss(animated: true)
     }
